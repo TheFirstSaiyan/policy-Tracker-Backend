@@ -41,6 +41,7 @@ public class PolicyServiceImpl implements PolicyService {
         currPolicy.setNominees(policy.getNominees());
         currPolicy.setStartDate(policy.getStartDate());
         currPolicy.setLastDate(policy.getLastDate());
+        currPolicy.setEmailLink(policy.getEmailLink());
         return policyRepository.save(currPolicy);
     }
     @Override

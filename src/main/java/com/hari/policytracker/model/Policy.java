@@ -27,6 +27,7 @@ public class Policy {
     private String premiumType;
     private Double premiumAmount;
     private Double tenure;
+    private String emailLink;
 
     
 }

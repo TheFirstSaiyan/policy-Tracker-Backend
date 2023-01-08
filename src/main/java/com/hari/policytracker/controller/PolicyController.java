@@ -64,30 +64,30 @@ public class PolicyController {
         return policyService.updatePolicyById(policy,id);
     }
 
-    @GetMapping("/policies/export")
-    public void exportToCSV(HttpServletResponse response) throws IOException {
-        response.setContentType("text/csv");
-        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
-        String currentDateTime = dateFormatter.format(new Date());
+    // @GetMapping("/policies/export")
+    // public void exportToCSV(HttpServletResponse response) throws IOException {
+    //     response.setContentType("text/csv");
+    //     DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
+    //     String currentDateTime = dateFormatter.format(new Date());
          
-        String headerKey = "Content-Disposition";
-        String headerValue = "attachment; filename=users_" + currentDateTime + ".csv";
-        response.setHeader(headerKey, headerValue);
+    //     String headerKey = "Content-Disposition";
+    //     String headerValue = "attachment; filename=users_" + currentDateTime + ".csv";
+    //     response.setHeader(headerKey, headerValue);
          
-        List<Policy> listPolicies = policyService.listAll();
+    //     List<Policy> listPolicies = policyService.listAll();
  
-        ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
-        String[] csvHeader = {"ID", "Policy Name", "Policy Details","Tenure","Premium Type","Premium Amount", "Start Date", "Last Date", "Nominees"};
-        String[] nameMapping = {"id", "policyName", "policyDetails","tenure","premiumType","premiumAmount", "startDate", "lastDate", "nominees"};
+    //     ICsvBeanWriter csvWriter = new CsvBeanWriter(response.getWriter(), CsvPreference.STANDARD_PREFERENCE);
+    //     String[] csvHeader = {"ID", "Policy Name", "Policy Details","Tenure","Premium Type","Premium Amount", "Start Date", "Last Date", "Nominees"};
+    //     String[] nameMapping = {"id", "policyName", "policyDetails","tenure","premiumType","premiumAmount", "startDate", "lastDate", "nominees"};
          
-        csvWriter.writeHeader(csvHeader);
+    //     csvWriter.writeHeader(csvHeader);
          
-        for (Policy policy : listPolicies) {
-            csvWriter.write(policy, nameMapping);
-        }
+    //     for (Policy policy : listPolicies) {
+    //         csvWriter.write(policy, nameMapping);
+    //     }
          
-        csvWriter.close();
+    //     csvWriter.close();
          
-    }
+    // }
     
 }
